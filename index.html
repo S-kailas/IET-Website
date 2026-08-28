@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IET on Campus – CET | Home</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- General Sans (Fontshare) — for the bold hero headline -->
+    <link
+        href="https://api.fontshare.com/v2/css?f[]=general-sans@700,800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="is-loading">
+
+    <!-- =====================================================
+         PAGE LOADER
+    ====================================================== -->
+
+    <div class="page-loader" id="pageLoader">
+
+        <div class="loader-mark">
+
+            <!-- I -->
+            <div class="col"></div>
+
+            <!-- E -->
+            <div class="rows">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+
+            <!-- T -->
+            <div class="loader-t"></div>
+
+        </div>
+
+
+        <!-- Progress bar -->
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loaderProgressBar"></div>
+        </div>
+
+        <div class="loader-percent" id="loaderPercent">
+            0%
+        </div>
+
+    </div>
+
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-inner">
+
+            <!-- Brand / Small IET Logo -->
+            <a class="brand" href="index.html">
+
+                <div class="brand-mark">
+
+                    <!-- I -->
+                    <div class="col"></div>
+
+                    <!-- E -->
+                    <div class="rows">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <!-- T -->
+                    <div class="brand-t"></div>
+
+                </div>
+
+                <div class="brand-text">
+                    IET on Campus
+                    <small>CET</small>
+                </div>
+
+            </a>
+
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+
+                <a
+                    class="active"
+                    href="index.html"
+                >
+                    Home
+                </a>
+
+                <a href="team.html">
+                    Team
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+            </nav>
+
+
+            <!-- Navigation Actions -->
+            <div class="nav-right">
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle dark mode"
+                >
+                    ◐
+                </button>
+
+                <a
+                    class="btn btn-primary btn-sm"
+                    href="join.html"
+                >
+                    Join IET
+                </a>
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="container hero-inner">
+
+            <div class="eyebrow">
+                Institution of Engineering and Technology
+            </div>
+
+
+            <!-- Large IET Logo -->
+            <div class="hero-logo">
+
+                <div class="logo-large">
+
+                    <!-- I -->
+                    <div class="col"></div>
+
+                    <!-- E -->
+                    <div class="rows">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <!-- T -->
+                    <div class="logo-t"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Heading -->
+            <h1>
+                Engineering ideas into
+                <em>impact.</em>
+            </h1>
+
+
+            <!-- Hero Description -->
+            <p>
+                Welcome to IET on Campus CET — a student community
+                focused on learning, building, collaboration and
+                meaningful engineering experiences.
+            </p>
+
+
+            <!-- Hero Buttons -->
+            <div class="hero-actions">
+
+                <a
+                    class="btn btn-primary"
+                    href="team.html"
+                >
+                    Meet the team
+                </a>
+
+                <a
+                    class="btn btn-outline"
+                    href="join.html"
+                >
+                    Join IET
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT SECTION
+    ====================================================== -->
+
+    <section id="about">
+
+        <div class="container split">
+
+            <!-- Heading -->
+            <div>
+
+                <div class="eyebrow">
+                    About us
+                </div>
+
+                <h2>
+                    About IET on Campus CET
+                </h2>
+
+            </div>
+
+
+            <!-- Content -->
+            <div class="content-copy">
+
+                <p>
+                    College of Engineering, Trivandrum hosts an active
+                    student chapter of The Institution of Engineering
+                    &amp; Technology (IET), the international
+                    professional society of engineers.
+                </p>
+
+                <p>
+                    The IET CET chapter was inaugurated on
+                    14 November 2008 as the first of its kind in Kerala.
+                </p>
+
+                <p>
+                    We aim to engineer a better world by inspiring
+                    the next generation, informing the wider engineering
+                    community about emerging advancements, and conducting
+                    seminars and workshops for students of CET and
+                    neighbouring colleges.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VISION & MISSION
+    ====================================================== -->
+
+    <section class="alt">
+
+        <!-- Vision -->
+        <div class="container split">
+
+            <div>
+
+                <div class="eyebrow">
+                    Direction
+                </div>
+
+                <h2>
+                    Vision
+                </h2>
+
+            </div>
+
+
+            <div class="content-copy">
+
+                <p>
+                    Working to engineer a better world by nurturing
+                    creative problem solvers and collaborative leaders
+                    within our campus community.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mission -->
+        <div
+            class="container split mission-block"
+        >
+
+            <div>
+
+                <div class="eyebrow">
+                    What we stand for
+                </div>
+
+                <h2>
+                    Mission
+                </h2>
+
+            </div>
+
+
+            <div class="content-copy">
+
+                <p>
+                    To inspire, inform, and influence the engineering
+                    ecosystem by making emerging technologies accessible
+                    through events, mentorship, and inclusive opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EVENTS SECTION
+    ====================================================== -->
+
+    <section id="events">
+
+        <div class="container">
+
+            <!-- Section Heading -->
+            <div class="section-head">
+
+                <div class="eyebrow">
+                    Events
+                </div>
+
+                <h2>
+                    What's happening
+                </h2>
+
+                <p>
+                    A preview of chapter activities. Add your actual
+                    event details and images here.
+                </p>
+
+            </div>
+
+
+            <!-- Event Cards -->
+            <div class="events-grid">
+
+                <!-- Event 01 -->
+                <div class="event-card">
+
+                    <div class="event-image">
+                        EVENT 01
+                    </div>
+
+                    <div class="event-body">
+
+                        <div class="event-date">
+                            Date · Venue
+                        </div>
+
+                        <h3>
+                            Event title
+                        </h3>
+
+                        <p>
+                            Short description of the event goes here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Event 02 -->
+                <div class="event-card">
+
+                    <div class="event-image">
+                        EVENT 02
+                    </div>
+
+                    <div class="event-body">
+
+                        <div class="event-date">
+                            Date · Venue
+                        </div>
+
+                        <h3>
+                            Event title
+                        </h3>
+
+                        <p>
+                            Short description of the event goes here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Event 03 -->
+                <div class="event-card">
+
+                    <div class="event-image">
+                        EVENT 03
+                    </div>
+
+                    <div class="event-body">
+
+                        <div class="event-date">
+                            Date · Venue
+                        </div>
+
+                        <h3>
+                            Event title
+                        </h3>
+
+                        <p>
+                            Short description of the event goes here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- View All Events -->
+            <div class="center">
+
+                <a
+                    class="btn btn-outline cta-arrow"
+                    href="events.html"
+                >
+                    View all events <span class="arrow">→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Footer Brand -->
+                <div class="footer-brand">
+
+                    <div class="brand">
+
+                        <div class="brand-mark">
+
+                            <!-- I -->
+                            <div
+                                class="col"
+                                style="background: #fff;"
+                            ></div>
+
+                            <!-- E -->
+                            <div class="rows">
+
+                                <i
+                                    style="background: #fff;"
+                                ></i>
+
+                                <i
+                                    style="background: var(--accent);"
+                                ></i>
+
+                                <i
+                                    style="background: var(--accent);"
+                                ></i>
+
+                            </div>
+
+                            <!-- T -->
+                            <div class="brand-t footer-brand-t"></div>
+
+                        </div>
+
+
+                        <div
+                            class="brand-text"
+                            style="color: #fff;"
+                        >
+                            IET on Campus
+
+                            <small
+                                style="color: #B6A9B9;"
+                            >
+                                CET
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        A student chapter of the Institution of
+                        Engineering and Technology at the College
+                        of Engineering Trivandrum.
+                    </p>
+
+                </div>
+
+
+                <!-- Explore -->
+                <div class="footer-col">
+
+                    <h5>
+                        Explore
+                    </h5>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="team.html">
+                        Team
+                    </a>
+
+                    <a href="events.html">
+                        Events
+                    </a>
+
+                </div>
+
+
+                <!-- Connect -->
+                <div class="footer-col">
+
+                    <h5>
+                        Connect
+                    </h5>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                    <a href="join.html">
+                        Join IET
+                    </a>
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 IET on Campus – CET
+                </span>
+
+                <span>
+                    Built by the chapter web team
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Page loader -->
+    <script>
+        (function () {
+            var DISPLAY_MS = 2000;
+
+            var body = document.body;
+            var loader = document.getElementById('pageLoader');
+            var bar = document.getElementById('loaderProgressBar');
+            var percentLabel = document.getElementById('loaderPercent');
+
+            // Animate the bar smoothly to 100% over the display duration
+            requestAnimationFrame(function () {
+                if (bar) {
+                    bar.style.transition = 'width ' + DISPLAY_MS + 'ms linear';
+                    bar.style.width = '100%';
+                }
+            });
+
+            // Tick the percentage label up alongside it
+            var start = Date.now();
+            var tickInterval = setInterval(function () {
+                var pct = Math.min((Date.now() - start) / DISPLAY_MS * 100, 100);
+
+                if (percentLabel) percentLabel.textContent = Math.round(pct) + '%';
+
+                if (pct >= 100) clearInterval(tickInterval);
+            }, 40);
+
+            setTimeout(function () {
+                if (!loader) return;
+
+                body.classList.remove('is-loading');
+                body.classList.add('is-loaded');
+                loader.classList.add('is-hidden');
+
+                setTimeout(function () {
+                    loader.remove();
+                }, 500);
+            }, DISPLAY_MS);
+        })();
+    </script>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
