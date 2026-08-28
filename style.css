@@ -215,8 +215,6 @@ body.is-loading {
     gap: 5px;
 
     height: 54px;
-
-    animation: loader-pulse 1.1s ease-in-out infinite;
 }
 
 .loader-mark .col {
@@ -293,17 +291,6 @@ body.is-loading {
 
     background: var(--primary);
 }
-
-@keyframes loader-pulse {
-
-    50% {
-        opacity: 0.5;
-
-        transform: scale(0.92);
-    }
-
-}
-
 
 /* Loader progress bar */
 
