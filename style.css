@@ -506,13 +506,13 @@ body.is-loaded .hero .eyebrow::before {
 }
 
 
-/* Hover I: swaps colors with E's lower blocks only (T unaffected) */
+/* Pair: I <-> E's 2nd block (hover either one to swap both) */
 
-.brand-mark .col:hover {
+.brand-mark:has(.col:hover, .rows i:nth-child(2):hover) .col {
     background: var(--accent);
 }
 
-.brand-mark .col:hover ~ .rows i:not(:first-child) {
+.brand-mark:has(.col:hover, .rows i:nth-child(2):hover) .rows i:nth-child(2) {
     background: var(--primary);
 }
 
@@ -568,9 +568,15 @@ body.is-loaded .hero .eyebrow::before {
 
 /* Hover T: swaps color independently (I and E unaffected) */
 
-.brand-t:hover::before,
-.brand-t:hover::after {
+/* Pair: T <-> E's 3rd block (hover either one to swap both) */
+
+.brand-mark:has(.brand-t:hover, .rows i:nth-child(3):hover) .brand-t::before,
+.brand-mark:has(.brand-t:hover, .rows i:nth-child(3):hover) .brand-t::after {
     background: var(--accent);
+}
+
+.brand-mark:has(.brand-t:hover, .rows i:nth-child(3):hover) .rows i:nth-child(3) {
+    background: var(--primary);
 }
 
 
@@ -995,13 +1001,13 @@ body.is-loaded .brand-mark .brand-t {
 }
 
 
-/* Hover I: swaps colors with E's lower blocks only (T unaffected) */
+/* Pair: I <-> E's 2nd block (hover either one to swap both) */
 
-.logo-large .col:hover {
+.logo-large:has(.col:hover, .rows i:nth-child(2):hover) .col {
     background: var(--accent);
 }
 
-.logo-large .col:hover ~ .rows i:not(:first-child) {
+.logo-large:has(.col:hover, .rows i:nth-child(2):hover) .rows i:nth-child(2) {
     background: var(--primary);
 }
 
@@ -1057,9 +1063,15 @@ body.is-loaded .brand-mark .brand-t {
 
 /* Hover T: swaps color independently (I and E unaffected) */
 
-.logo-t:hover::before,
-.logo-t:hover::after {
+/* Pair: T <-> E's 3rd block (hover either one to swap both) */
+
+.logo-large:has(.logo-t:hover, .rows i:nth-child(3):hover) .logo-t::before,
+.logo-large:has(.logo-t:hover, .rows i:nth-child(3):hover) .logo-t::after {
     background: var(--accent);
+}
+
+.logo-large:has(.logo-t:hover, .rows i:nth-child(3):hover) .rows i:nth-child(3) {
+    background: var(--primary);
 }
 
 
