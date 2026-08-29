@@ -427,6 +427,48 @@ body.is-loaded .hero .eyebrow::before {
     padding: 18px 24px 0;
 
     background: transparent;
+
+    /* Hidden until script.js adds "nav-ready" to <body> — on the
+       homepage that's once the hero typewriter finishes typing
+       "Impact."; on pages with no typewriter it's added right away. */
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s cubic-bezier(.16, .84, .44, 1),
+        transform 0.8s cubic-bezier(.16, .84, .44, 1);
+}
+
+body.nav-ready .navbar {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Single source of the hero's radial glow (see .hero above). Fixed to
+   the viewport and anchored using --navbar-h (kept in sync by
+   script.js) so it always starts at the same physical point — right at
+   the hero's top edge — whether the navbar above it is hidden or
+   visible. Painting it once here, instead of once in .hero and again
+   in a separate "gap filler" layer, avoids any seam between two
+   independently-rasterized copies of the same gradient. */
+body:has(.hero)::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            700px 420px
+            at 50% var(--navbar-h, 78px),
+            var(--accent-tint),
+            transparent 70%
+        );
 }
 
 .nav-inner {
@@ -942,13 +984,9 @@ body.is-loaded .brand-mark .brand-t {
 
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            700px 420px
-            at 50% 0,
-            var(--accent-tint),
-            transparent 70%
-        );
+    /* Glow lives on body::before (see NAVBAR section) so there's a single
+       gradient painted once, anchored to the true viewport top — no
+       second, independently-rasterized copy for it to seam against. */
 }
 
 .hero-inner {
@@ -2129,6 +2167,7 @@ html.js-reveal .form-wrap.in-view {
 
     .logo-t::after {
         width: 44px;
+        height: 160px;
     }
 
 
@@ -2274,6 +2313,7 @@ html.js-reveal .form-wrap.in-view {
 
     .logo-t::after {
         width: 38px;
+        height: 140px;
     }
 
 

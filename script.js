@@ -1,4 +1,16 @@
 const root=document.documentElement;
+
+// Exposes the navbar's real rendered height as --navbar-h so the hero's
+// background glow (see .hero and the body::before "gap filler" in
+// style.css) can share one exact center point even while the navbar is
+// hidden and its space is only reserved, not visibly occupied.
+const navbarEl=document.querySelector('.navbar');
+function updateNavbarHeightVar(){
+    if(navbarEl) root.style.setProperty('--navbar-h',navbarEl.offsetHeight+'px');
+}
+updateNavbarHeightVar();
+window.addEventListener('resize',updateNavbarHeightVar);
+
 const toggle=document.getElementById('themeToggle');
 if(localStorage.getItem('iet-theme')==='dark') root.dataset.theme='dark';
 if(toggle) toggle.addEventListener('click',()=>{const dark=root.dataset.theme==='dark';root.dataset.theme=dark?'light':'dark';localStorage.setItem('iet-theme',dark?'light':'dark');toggle.textContent=dark?'◐':'◑'});
@@ -74,10 +86,17 @@ if(scrollProgress){
 (function(){
     const line1=document.getElementById('heroLine1');
     const line2=document.getElementById('heroLine2');
-    if(!line1||!line2) return;
+    if(!line1||!line2){
+        // No hero typewriter on this page (e.g. team/events/contact) —
+        // nothing to wait on, so reveal the navbar right away.
+        document.body.classList.add('nav-ready');
+        return;
+    }
 
     const LINE1_TEXT='Engineering ideas into';
-    const WORDS=['Innovation','Solutions','Impact'];
+    // Last word includes the trailing full stop so it types in as part
+    // of the word and stays on screen once the sequence finishes.
+    const WORDS=['Innovation','Solutions','Impact.'];
 
     const TYPE_SPEED=90;        // ms per character while typing
     const ERASE_SPEED=50;       // ms per character while erasing
@@ -114,7 +133,11 @@ if(scrollProgress){
         const word=WORDS[idx];
         const isLast=idx===WORDS.length-1;
         typeInto(line2,word,TYPE_SPEED,()=>{
-            if(isLast) return; // stop here — the last word stays on screen
+            if(isLast){
+                // Everything has now finished typing — reveal the navbar.
+                document.body.classList.add('nav-ready');
+                return; // stop here — the last word stays on screen
+            }
             setTimeout(()=>{
                 eraseFrom(line2,ERASE_SPEED,()=>{
                     setTimeout(()=>runWord(idx+1),HOLD_BEFORE_NEXT);
