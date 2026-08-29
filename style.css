@@ -977,9 +977,10 @@ body.is-loaded .brand-mark .brand-t {
     display: flex;
     flex-direction: column;
 
-    gap: 12px;
+    gap: 6px;
 
-    width: 110px;
+    width: 127px;
+    height: 190px;
 
     margin-left: 4px;
 }
@@ -987,7 +988,7 @@ body.is-loaded .brand-mark .brand-t {
 .logo-large .rows i {
     display: block;
 
-    height: 55px;
+    flex: 1 1 0;
 
     border-radius: 5px;
 
@@ -2040,11 +2041,8 @@ html.js-reveal .form-wrap.in-view {
     }
 
     .logo-large .rows {
-        width: 90px;
-    }
-
-    .logo-large .rows i {
-        height: 46px;
+        width: 108px;
+        height: 160px;
     }
 
     .logo-t {
@@ -2180,13 +2178,10 @@ html.js-reveal .form-wrap.in-view {
     }
 
     .logo-large .rows {
-        width: 78px;
+        width: 93px;
+        height: 140px;
 
-        gap: 9px;
-    }
-
-    .logo-large .rows i {
-        height: 40px;
+        gap: 5px;
     }
 
     .logo-t {
