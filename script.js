@@ -65,3 +65,85 @@ if(scrollProgress){
     window.addEventListener('scroll',updateScrollProgress,{passive:true});
     updateScrollProgress();
 }
+
+// Hero heading typewriter (homepage only — no-ops elsewhere since these
+// elements don't exist on other pages).
+// Sequence: type "Engineering ideas into" and hold it, then cycle the
+// second word — type "Innovation", pause, erase, type "Solutions", pause,
+// erase, type "Impact" and stop there for good.
+(function(){
+    const line1=document.getElementById('heroLine1');
+    const line2=document.getElementById('heroLine2');
+    if(!line1||!line2) return;
+
+    const LINE1_TEXT='Engineering ideas into';
+    const WORDS=['Innovation','Solutions','Impact'];
+
+    const TYPE_SPEED=90;        // ms per character while typing
+    const ERASE_SPEED=50;       // ms per character while erasing
+    const HOLD_AFTER_TYPE=1600;  // pause on a fully-typed word before erasing it
+    const HOLD_BEFORE_NEXT=300; // pause after erasing, before typing the next word
+
+    function typeInto(el,text,speed,done){
+        let i=0;
+        el.textContent='';
+        (function step(){
+            if(i<text.length){
+                el.textContent+=text.charAt(i);
+                i++;
+                setTimeout(step,speed);
+            } else if(done){
+                done();
+            }
+        })();
+    }
+
+    function eraseFrom(el,speed,done){
+        (function step(){
+            const text=el.textContent;
+            if(text.length>0){
+                el.textContent=text.slice(0,-1);
+                setTimeout(step,speed);
+            } else if(done){
+                done();
+            }
+        })();
+    }
+
+    function runWord(idx){
+        const word=WORDS[idx];
+        const isLast=idx===WORDS.length-1;
+        typeInto(line2,word,TYPE_SPEED,()=>{
+            if(isLast) return; // stop here — the last word stays on screen
+            setTimeout(()=>{
+                eraseFrom(line2,ERASE_SPEED,()=>{
+                    setTimeout(()=>runWord(idx+1),HOLD_BEFORE_NEXT);
+                });
+            },HOLD_AFTER_TYPE);
+        });
+    }
+
+    function startSequence(){
+        typeInto(line1,LINE1_TEXT,TYPE_SPEED,()=>{
+            setTimeout(()=>runWord(0),250);
+        });
+    }
+
+    // The heading itself is invisible (opacity:0) until body gets
+    // "is-loaded" — on the homepage that's added ~2s later by the splash
+    // loader's own script. Watch for that instead of hardcoding a delay,
+    // so this keeps working even if the loader's timing changes.
+    if(document.body.classList.contains('is-loaded')){
+        startSequence();
+    } else {
+        const observer=new MutationObserver(()=>{
+            if(document.body.classList.contains('is-loaded')){
+                observer.disconnect();
+                // Matches .hero h1's own 0.32s reveal transition-delay,
+                // so typing starts right as the heading fades into view.
+                setTimeout(startSequence,320);
+            }
+        });
+        observer.observe(document.body,{attributes:true,attributeFilter:['class']});
+    }
+})();

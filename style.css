@@ -18,6 +18,12 @@
     --accent-hover: #8A37A0;
     --accent-tint: #F0DFF4;
 
+    /* Logo colors — intentionally NOT redefined in [data-theme="dark"],
+       so the I·E·T mark (loader, navbar, hero) always renders in the
+       original light-mode brand colors, regardless of theme. */
+    --logo-primary: #53274E;
+    --logo-accent: #A046B4;
+
     /* Neutral */
     --charcoal: #1C1420;
 
@@ -221,7 +227,7 @@ body.is-loading {
     width: 16px;
     height: 54px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     border-radius: 2px;
 }
@@ -244,11 +250,11 @@ body.is-loading {
 
     border-radius: 2px;
 
-    background: var(--accent);
+    background: var(--logo-accent);
 }
 
 .loader-mark .rows i:first-child {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 .loader-mark .loader-t {
@@ -271,7 +277,7 @@ body.is-loading {
 
     border-radius: 2px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 .loader-mark .loader-t::after {
@@ -289,7 +295,7 @@ body.is-loading {
 
     border-radius: 2px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 /* Loader progress bar */
@@ -509,7 +515,7 @@ body.is-loaded .hero .eyebrow::before {
     width: 9px;
     height: 30px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     border-radius: 1px;
 
@@ -534,24 +540,24 @@ body.is-loaded .hero .eyebrow::before {
 
     border-radius: 1px;
 
-    background: var(--accent);
+    background: var(--logo-accent);
 
     transition: background-color 0.35s ease;
 }
 
 .brand-mark .rows i:first-child {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 
 /* Pair: I <-> E's 2nd block (hover either one to swap both) */
 
 .brand-mark:has(.col:hover, .rows i:nth-child(2):hover) .col {
-    background: var(--accent);
+    background: var(--logo-accent);
 }
 
 .brand-mark:has(.col:hover, .rows i:nth-child(2):hover) .rows i:nth-child(2) {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 
@@ -579,7 +585,7 @@ body.is-loaded .hero .eyebrow::before {
 
     border-radius: 1px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     transition: background-color 0.35s ease;
 }
@@ -599,7 +605,7 @@ body.is-loaded .hero .eyebrow::before {
 
     border-radius: 1px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     transition: background-color 0.35s ease;
 }
@@ -610,11 +616,11 @@ body.is-loaded .hero .eyebrow::before {
 
 .brand-mark:has(.brand-t:hover, .rows i:nth-child(3):hover) .brand-t::before,
 .brand-mark:has(.brand-t:hover, .rows i:nth-child(3):hover) .brand-t::after {
-    background: var(--accent);
+    background: var(--logo-accent);
 }
 
 .brand-mark:has(.brand-t:hover, .rows i:nth-child(3):hover) .rows i:nth-child(3) {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 
@@ -1004,7 +1010,7 @@ body.is-loaded .brand-mark .brand-t {
     width: 52px;
     height: 190px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     border-radius: 5px;
 
@@ -1030,24 +1036,24 @@ body.is-loaded .brand-mark .brand-t {
 
     border-radius: 5px;
 
-    background: var(--accent);
+    background: var(--logo-accent);
 
     transition: background-color 0.35s ease;
 }
 
 .logo-large .rows i:first-child {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 
 /* Pair: I <-> E's 2nd block (hover either one to swap both) */
 
 .logo-large:has(.col:hover, .rows i:nth-child(2):hover) .col {
-    background: var(--accent);
+    background: var(--logo-accent);
 }
 
 .logo-large:has(.col:hover, .rows i:nth-child(2):hover) .rows i:nth-child(2) {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 
@@ -1075,7 +1081,7 @@ body.is-loaded .brand-mark .brand-t {
 
     border-radius: 5px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     transition: background-color 0.35s ease;
 }
@@ -1095,7 +1101,7 @@ body.is-loaded .brand-mark .brand-t {
 
     border-radius: 5px;
 
-    background: var(--primary);
+    background: var(--logo-primary);
 
     transition: background-color 0.35s ease;
 }
@@ -1106,11 +1112,11 @@ body.is-loaded .brand-mark .brand-t {
 
 .logo-large:has(.logo-t:hover, .rows i:nth-child(3):hover) .logo-t::before,
 .logo-large:has(.logo-t:hover, .rows i:nth-child(3):hover) .logo-t::after {
-    background: var(--accent);
+    background: var(--logo-accent);
 }
 
 .logo-large:has(.logo-t:hover, .rows i:nth-child(3):hover) .rows i:nth-child(3) {
-    background: var(--primary);
+    background: var(--logo-primary);
 }
 
 
@@ -1153,6 +1159,35 @@ body.is-loaded .brand-mark .brand-t {
     display: inline-block;
 
     animation: shimmer 6s ease-in-out infinite alternate;
+}
+
+/* Typewriter caret next to the cycling word (Innovation / Solutions / Impact).
+   Given a solid color rather than currentColor, since the parent <em>'s own
+   text color is transparent (it's clipped to show the gradient instead). */
+.hero h1 .type-cursor {
+    display: inline-block;
+
+    width: 3px;
+    height: 0.82em;
+
+    margin-left: 3px;
+
+    vertical-align: -0.05em;
+
+    background: var(--accent);
+
+    animation: caret-blink 0.9s step-end infinite;
+}
+
+@keyframes caret-blink {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 @keyframes shimmer {
