@@ -2,8 +2,28 @@ const root=document.documentElement;
 const toggle=document.getElementById('themeToggle');
 if(localStorage.getItem('iet-theme')==='dark') root.dataset.theme='dark';
 if(toggle) toggle.addEventListener('click',()=>{const dark=root.dataset.theme==='dark';root.dataset.theme=dark?'light':'dark';localStorage.setItem('iet-theme',dark?'light':'dark');toggle.textContent=dark?'◐':'◑'});
-const menu=document.getElementById('menuToggle'), links=document.querySelector('.nav-links');
-if(menu) menu.addEventListener('click',()=>{const open=links.dataset.open==='1';links.dataset.open=open?'0':'1';links.style.display=open?'':'flex';if(!open){links.style.position='absolute';links.style.top='70px';links.style.left='0';links.style.right='0';links.style.padding='18px 32px';links.style.flexDirection='column';links.style.background='var(--bg)';links.style.borderBottom='1px solid var(--border)'}});
+const menu=document.getElementById('menuToggle'), links=document.querySelector('.nav-links'), navBar=document.querySelector('.navbar');
+if(menu) menu.addEventListener('click',()=>{
+    const open=links.dataset.open==='1';
+    links.dataset.open=open?'0':'1';
+    links.style.display=open?'':'flex';
+    if(!open){
+        // Position just below the floating pill navbar, wherever it currently sits
+        const navRect=navBar.getBoundingClientRect();
+        links.style.position='fixed';
+        links.style.top=(navRect.bottom+10)+'px';
+        links.style.left='14px';
+        links.style.right='14px';
+        links.style.padding='18px 22px';
+        links.style.flexDirection='column';
+        links.style.borderRadius='16px';
+        links.style.border='1px solid color-mix(in srgb, var(--border-strong) 45%, transparent)';
+        links.style.background='color-mix(in srgb, var(--bg) 82%, transparent)';
+        links.style.backdropFilter='blur(18px) saturate(180%)';
+        links.style.webkitBackdropFilter='blur(18px) saturate(180%)';
+        links.style.boxShadow='0 12px 30px rgba(0, 0, 0, 0.25)';
+    }
+});
 
 // Scroll-triggered fade-up reveals (sections, cards, forms)
 // Gated behind the js-reveal class so content stays visible if this fails.
