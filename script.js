@@ -2,6 +2,18 @@ const root=document.documentElement;
 const toggle=document.getElementById('themeToggle');
 if(localStorage.getItem('iet-theme')==='dark') root.dataset.theme='dark';
 if(toggle) toggle.addEventListener('click',()=>{const dark=root.dataset.theme==='dark';root.dataset.theme=dark?'light':'dark';localStorage.setItem('iet-theme',dark?'light':'dark');toggle.textContent=dark?'◐':'◑'});
+
+// The navbar logo mark (.brand-mark) is drawn hidden (opacity:0) and only
+// revealed by the "body.is-loaded" class. On the homepage that class is
+// added by the full-screen loader's own inline script once its splash
+// animation finishes. Every other page has no loader element at all, so
+// that class was never added and the logo stayed invisible forever.
+// Add it here immediately on any page that has no #pageLoader, so the
+// logo shows up on every page without duplicating the splash screen.
+if(!document.getElementById('pageLoader')){
+    document.body.classList.add('is-loaded');
+}
+
 const menu=document.getElementById('menuToggle'), links=document.querySelector('.nav-links'), navBar=document.querySelector('.navbar');
 if(menu) menu.addEventListener('click',()=>{
     const open=links.dataset.open==='1';
