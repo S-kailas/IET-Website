@@ -474,6 +474,8 @@ body.is-loaded .hero .eyebrow::before {
     background: var(--primary);
 
     border-radius: 1px;
+
+    transition: background-color 0.35s ease;
 }
 
 .brand-mark .rows {
@@ -495,9 +497,22 @@ body.is-loaded .hero .eyebrow::before {
     border-radius: 1px;
 
     background: var(--accent);
+
+    transition: background-color 0.35s ease;
 }
 
 .brand-mark .rows i:first-child {
+    background: var(--primary);
+}
+
+
+/* Hover: I and E's lower blocks swap colors */
+
+.brand:hover .brand-mark .col {
+    background: var(--accent);
+}
+
+.brand:hover .brand-mark .rows i:not(:first-child) {
     background: var(--primary);
 }
 
@@ -527,6 +542,8 @@ body.is-loaded .hero .eyebrow::before {
     border-radius: 1px;
 
     background: var(--primary);
+
+    transition: background-color 0.35s ease;
 }
 
 .brand-t::after {
@@ -545,6 +562,13 @@ body.is-loaded .hero .eyebrow::before {
     border-radius: 1px;
 
     background: var(--primary);
+
+    transition: background-color 0.35s ease;
+}
+
+.brand:hover .brand-t::before,
+.brand:hover .brand-t::after {
+    background: var(--accent);
 }
 
 
@@ -937,6 +961,8 @@ body.is-loaded .brand-mark .brand-t {
     background: var(--primary);
 
     border-radius: 5px;
+
+    transition: background-color 0.35s ease;
 }
 
 .logo-large .rows {
@@ -958,9 +984,22 @@ body.is-loaded .brand-mark .brand-t {
     border-radius: 5px;
 
     background: var(--accent);
+
+    transition: background-color 0.35s ease;
 }
 
 .logo-large .rows i:first-child {
+    background: var(--primary);
+}
+
+
+/* Hover: I and E's lower blocks swap colors */
+
+.hero-logo:hover .logo-large .col {
+    background: var(--accent);
+}
+
+.hero-logo:hover .logo-large .rows i:not(:first-child) {
     background: var(--primary);
 }
 
@@ -990,6 +1029,8 @@ body.is-loaded .brand-mark .brand-t {
     border-radius: 5px;
 
     background: var(--primary);
+
+    transition: background-color 0.35s ease;
 }
 
 .logo-t::after {
@@ -1008,6 +1049,13 @@ body.is-loaded .brand-mark .brand-t {
     border-radius: 5px;
 
     background: var(--primary);
+
+    transition: background-color 0.35s ease;
+}
+
+.hero-logo:hover .logo-t::before,
+.hero-logo:hover .logo-t::after {
+    background: var(--accent);
 }
 
 
