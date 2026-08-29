@@ -506,13 +506,13 @@ body.is-loaded .hero .eyebrow::before {
 }
 
 
-/* Hover: I and E's lower blocks swap colors */
+/* Hover I: swaps colors with E's lower blocks only (T unaffected) */
 
-.brand:hover .brand-mark .col {
+.brand-mark .col:hover {
     background: var(--accent);
 }
 
-.brand:hover .brand-mark .rows i:not(:first-child) {
+.brand-mark .col:hover ~ .rows i:not(:first-child) {
     background: var(--primary);
 }
 
@@ -566,8 +566,10 @@ body.is-loaded .hero .eyebrow::before {
     transition: background-color 0.35s ease;
 }
 
-.brand:hover .brand-t::before,
-.brand:hover .brand-t::after {
+/* Hover T: swaps color independently (I and E unaffected) */
+
+.brand-t:hover::before,
+.brand-t:hover::after {
     background: var(--accent);
 }
 
@@ -993,13 +995,13 @@ body.is-loaded .brand-mark .brand-t {
 }
 
 
-/* Hover: I and E's lower blocks swap colors */
+/* Hover I: swaps colors with E's lower blocks only (T unaffected) */
 
-.hero-logo:hover .logo-large .col {
+.logo-large .col:hover {
     background: var(--accent);
 }
 
-.hero-logo:hover .logo-large .rows i:not(:first-child) {
+.logo-large .col:hover ~ .rows i:not(:first-child) {
     background: var(--primary);
 }
 
@@ -1053,8 +1055,10 @@ body.is-loaded .brand-mark .brand-t {
     transition: background-color 0.35s ease;
 }
 
-.hero-logo:hover .logo-t::before,
-.hero-logo:hover .logo-t::after {
+/* Hover T: swaps color independently (I and E unaffected) */
+
+.logo-t:hover::before,
+.logo-t:hover::after {
     background: var(--accent);
 }
 
