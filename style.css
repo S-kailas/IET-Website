@@ -5,6 +5,34 @@
 
 
 /* =========================================================
+   SMOOTH SCROLL (Lenis) — recommended base CSS.
+   Initialized in script.js. Safe no-op if the library fails
+   to load (native scrolling just continues as normal).
+   ========================================================= */
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+
+/* =========================================================
    DESIGN TOKENS
    ========================================================= */
 

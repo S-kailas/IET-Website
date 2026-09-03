@@ -1,3 +1,15 @@
+// Slow, smooth momentum scroll (Lenis) — the page glides to a stop
+// instead of jumping straight to each wheel tick. Skipped for anyone
+// who's asked their OS/browser for reduced motion, and safely no-ops
+// (falls back to normal native scrolling) if the library failed to load.
+if(typeof Lenis!=='undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    window.lenis=new Lenis({
+        duration:1.6,                                    // higher = slower glide (Lenis default is 1.2)
+        easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)),  // ease-out: quick start, slow settle
+        autoRaf:true
+    });
+}
+
 const root=document.documentElement;
 
 // Exposes the navbar's real rendered height as --navbar-h so the hero's
