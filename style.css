@@ -1786,6 +1786,52 @@ body.is-loaded .hero-actions {
 }
 
 
+/* Name row + LinkedIn icon */
+
+.person-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 5px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    color: #FFFFFF;
+
+    /* .person-info above has pointer-events: none so the overlay never
+       blocks hovering the photo underneath — opt this one interactive
+       element back in so it stays clickable. */
+    pointer-events: auto;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.linkedin-link svg {
+    width: 60%;
+    height: 60%;
+    fill: currentColor;
+}
+
+.linkedin-link:hover,
+.linkedin-link:focus-visible {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+
 /* Position */
 
 .person-info p {
