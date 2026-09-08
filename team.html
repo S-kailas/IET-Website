@@ -676,6 +676,51 @@
 
 
     <!-- =========================
+         PAST EXECOM TEAMS
+    ========================== -->
+    <section class="alt">
+
+        <div class="container">
+
+            <div class="section-head">
+
+                <div class="eyebrow">
+                    Chapter history
+                </div>
+
+                <h2>
+                    Past Execom Teams
+                </h2>
+
+                <p>
+                    Browse previous years' committees.
+                </p>
+
+            </div>
+
+
+            <!-- Year Switcher -->
+            <div class="year-tabs" id="yearTabs">
+
+                <button class="year-tab" data-year="2025">2025-26</button>
+                <button class="year-tab" data-year="2024">2024-25</button>
+                <button class="year-tab" data-year="2023">2023-24</button>
+                <button class="year-tab" data-year="2022">2022-23</button>
+                <button class="year-tab" data-year="2021">2021-22</button>
+                <button class="year-tab" data-year="2020">2020-21</button>
+
+            </div>
+
+
+            <!-- Populated by team-history.js -->
+            <div class="team-grid" id="teamHistoryGrid"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
          FOOTER
     ========================== -->
     <footer>
@@ -814,6 +859,10 @@
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
 
     <script src="script.js"></script>
+
+    <!-- Past Execom teams (2020–2025); type="module" so it can import
+         team_2020.js .. team_2025.js directly -->
+    <script type="module" src="team-history.js"></script>
 
 </body>
 </html>
