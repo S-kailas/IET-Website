@@ -77,10 +77,10 @@ html.lenis body {
     );
 
     /* Fonts */
-    --font-display: 'Sora', sans-serif;
-    --font-heavy: 'General Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Manrope', sans-serif;
+    --font-heavy: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
 
     /* Radius */
     --radius-sm: 6px;
