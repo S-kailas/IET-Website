@@ -77,10 +77,11 @@ html.lenis body {
     );
 
     /* Fonts */
-    --font-display: 'Manrope', sans-serif;
+     --font-display: 'Manrope', sans-serif;
     --font-heavy: 'Bricolage Grotesque', sans-serif;
     --font-body: 'Nunito Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
+
 
     /* Radius */
     --radius-sm: 6px;
@@ -2429,10 +2430,10 @@ html.js-reveal .form-wrap.in-view {
     }
 
     .logo-large .rows {
-        width: 93px;
+        width: 110px;
         height: 140px;
 
-        gap: 5px;
+        gap: 8.5px;
     }
 
     .logo-t {
