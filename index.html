@@ -621,6 +621,22 @@
 
             var body = document.body;
             var loader = document.getElementById('pageLoader');
+
+            // Only show the loader on an actual page load / reload,
+            // not when the user navigates back to Home from within the site.
+            var alreadySeen = sessionStorage.getItem('loaderShown');
+
+            if (alreadySeen) {
+                // Skip the loader immediately
+                body.classList.remove('is-loading');
+                body.classList.add('is-loaded');
+                if (loader) loader.remove();
+                return;
+            }
+
+            // Mark as seen for the rest of this browser session
+            sessionStorage.setItem('loaderShown', '1');
+
             var bar = document.getElementById('loaderProgressBar');
             var percentLabel = document.getElementById('loaderPercent');
 
