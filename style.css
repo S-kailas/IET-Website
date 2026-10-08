@@ -1412,10 +1412,26 @@ body.is-loaded .hero-actions {
     align-items: start;
 }
 
-.split h2 {
-    margin-top: 14px;
+/* Eyebrow sits above the split grid — give it bottom spacing */
+.alt > .container:has(.eyebrow) {
+    padding-bottom: 12px;
+}
 
+/* Standalone Vision/Mission eyebrows use the same accent rule as section headers. */
+.alt > .container > .eyebrow::before {
+    transform: scaleX(1);
+}
+
+.split h2 {
     font-size: 36px;
+
+    /* No margin-top — eyebrow is now above the grid, not inside it */
+    margin-top: 0;
+}
+
+/* Align paragraph text with the top of the h2 */
+.split .content-copy {
+    padding-top: 6px;
 }
 
 .content-copy {
@@ -1435,6 +1451,11 @@ body.is-loaded .hero-actions {
 
 .alt {
     background: var(--surface);
+}
+
+/* Space between Vision and Mission blocks */
+.mission-block {
+    margin-top: 16px;
 }
 
 
