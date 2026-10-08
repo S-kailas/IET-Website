@@ -457,19 +457,18 @@ body.is-loaded .hero .eyebrow::before {
 
     background: transparent;
 
-    /* Hidden until script.js adds "nav-ready" to <body> — on the
-       homepage that's once the hero typewriter finishes typing
-       "Impact."; on pages with no typewriter it's added right away. */
+    /* Starts hidden; fades in once body.is-loaded is set (after the
+       splash loader on the homepage, or immediately on other pages). */
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     pointer-events: none;
 
     transition:
-        opacity 1.5s cubic-bezier(.16, .84, .44, 1),
-        transform 10s cubic-bezier(.16, .84, .44, 1);
+        opacity 1.2s cubic-bezier(.16, .84, .44, 1),
+        transform 1.2s cubic-bezier(.16, .84, .44, 1);
 }
 
-body.nav-ready .navbar {
+body.is-loaded .navbar {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
@@ -909,6 +908,75 @@ body.is-loaded .brand-mark .brand-t {
     color: var(--text-primary);
 
     cursor: pointer;
+}
+
+/* Full-screen mobile nav overlay */
+.mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.is-open {
+    display: flex;
+    opacity: 1;
+}
+
+.mobile-nav-overlay a {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-nav-overlay a:hover,
+.mobile-nav-overlay a.active {
+    color: var(--accent);
+    transform: translateX(6px);
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-close:hover {
+    background: var(--accent);
+    color: #fff;
 }
 
 

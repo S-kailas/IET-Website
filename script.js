@@ -99,9 +99,6 @@ if(scrollProgress){
     const line1=document.getElementById('heroLine1');
     const line2=document.getElementById('heroLine2');
     if(!line1||!line2){
-        // No hero typewriter on this page (e.g. team/events/contact) —
-        // nothing to wait on, so reveal the navbar right away.
-        document.body.classList.add('nav-ready');
         return;
     }
 
@@ -146,8 +143,6 @@ if(scrollProgress){
         const isLast=idx===WORDS.length-1;
         typeInto(line2,word,TYPE_SPEED,()=>{
             if(isLast){
-                // Everything has now finished typing — reveal the navbar.
-                document.body.classList.add('nav-ready');
                 return; // stop here — the last word stays on screen
             }
             setTimeout(()=>{
