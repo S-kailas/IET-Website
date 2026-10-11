@@ -38,28 +38,72 @@ if(!document.getElementById('pageLoader')){
     document.body.classList.add('is-loaded');
 }
 
-const menu=document.getElementById('menuToggle'), links=document.querySelector('.nav-links'), navBar=document.querySelector('.navbar');
-if(menu) menu.addEventListener('click',()=>{
-    const open=links.dataset.open==='1';
-    links.dataset.open=open?'0':'1';
-    links.style.display=open?'':'flex';
-    if(!open){
-        // Position just below the floating pill navbar, wherever it currently sits
-        const navRect=navBar.getBoundingClientRect();
-        links.style.position='fixed';
-        links.style.top=(navRect.bottom+10)+'px';
-        links.style.left='14px';
-        links.style.right='14px';
-        links.style.padding='18px 22px';
-        links.style.flexDirection='column';
-        links.style.borderRadius='16px';
-        links.style.border='1px solid color-mix(in srgb, var(--border-strong) 45%, transparent)';
-        links.style.background='color-mix(in srgb, var(--bg) 82%, transparent)';
-        links.style.backdropFilter='blur(18px) saturate(180%)';
-        links.style.webkitBackdropFilter='blur(18px) saturate(180%)';
-        links.style.boxShadow='0 12px 30px rgba(0, 0, 0, 0.25)';
+// Keep each event poster fully visible inside the shared card frame while
+// using a blurred copy of the same image to fill any unused space. Event
+// cards with multiple images crossfade through them; a single image stays put.
+document.querySelectorAll('.event-image').forEach((frame)=>{
+    const images=Array.from(frame.children).filter((child)=>child.tagName==='IMG');
+    if(!images.length){
+        return;
     }
+
+    let activeIndex=Math.floor(Math.random()*images.length);
+    const showImage=(index)=>{
+        const activeImage=images[index];
+        images.forEach((image,imageIndex)=>{
+            image.classList.toggle('is-active',imageIndex===index);
+        });
+        frame.style.setProperty('--event-image',`url("${activeImage.currentSrc||activeImage.src}")`);
+    };
+
+    showImage(activeIndex);
+
+    if(images.length<2||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        return;
+    }
+
+    frame.classList.add('has-slideshow');
+    const scheduleNextSlide=()=>{
+        const delay=3000+Math.random()*2000;
+        window.setTimeout(()=>{
+            let nextIndex=activeIndex;
+            while(nextIndex===activeIndex){
+                nextIndex=Math.floor(Math.random()*images.length);
+            }
+            activeIndex=nextIndex;
+            showImage(activeIndex);
+            scheduleNextSlide();
+        },delay);
+    };
+    scheduleNextSlide();
 });
+
+const menu=document.getElementById('menuToggle'), links=document.querySelector('.nav-links'), navBar=document.querySelector('.navbar');
+if(menu&&links&&navBar){
+    const setMenuOpen=(open)=>{
+        links.dataset.open=open?'1':'0';
+        menu.classList.toggle('is-open',open);
+        menu.setAttribute('aria-expanded',String(open));
+        menu.setAttribute('aria-label',open?'Close menu':'Open menu');
+        menu.textContent=open?'×':'☰';
+
+        if(open){
+            const navRect=navBar.getBoundingClientRect();
+            links.style.setProperty('--mobile-nav-top',(navRect.bottom+10)+'px');
+        }
+    };
+
+    setMenuOpen(false);
+    menu.addEventListener('click',()=>setMenuOpen(links.dataset.open!=='1'));
+    document.addEventListener('keydown',(event)=>{
+        if(event.key==='Escape') setMenuOpen(false);
+    });
+    document.addEventListener('click',(event)=>{
+        if(links.dataset.open==='1'&&!links.contains(event.target)&&!menu.contains(event.target)){
+            setMenuOpen(false);
+        }
+    });
+}
 
 // Scroll-triggered fade-up reveals (sections, cards, forms)
 // Gated behind the js-reveal class so content stays visible if this fails.
