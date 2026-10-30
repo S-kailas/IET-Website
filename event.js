@@ -6,8 +6,8 @@ export const competitions = [
         img: 'workshops/2024/Hackaton/recet.png',
     },
     {
-        title: 'Code ReCET 2.0',
-        content: 'The second edition featured hardware and software tracks, mentor sessions, and a final demo day.',
+        title: 'Code ReCET 3.0',
+        content: 'The 2025 edition brings hardware and software tracks, midnight mentor huddles, and a finale demo day open to partners. Expect on-the-spot challenges, swag drops, and hiring spotlights for standout prototypes.',
         date: '25/07/2025, 27/07/2025',
         img: 'workshops/2025/Hackaton/recet.png',
     },
