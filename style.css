@@ -1690,6 +1690,38 @@ body.is-loaded .hero-actions {
     font-size: 14px;
 }
 
+.event-resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-top: 4px;
+
+    color: var(--accent);
+
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    opacity: 0.85;
+
+    transition: opacity 0.2s;
+}
+
+.event-resource-link::before {
+    content: '↓';
+    font-size: 13px;
+}
+
+.event-resource-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
 
 /* Center button */
 

@@ -451,6 +451,44 @@
 
 
     <!-- =========================
+         PAST EXECOM EVENTS
+    ========================== -->
+    <section class="alt">
+
+        <div class="container">
+
+            <div class="section-head">
+
+                <div class="eyebrow">
+                    Chapter history
+                </div>
+
+                <h2>
+                    Past Events
+                </h2>
+
+                <p>
+                    Browse workshops, talks, competitions and activities from previous years.
+                </p>
+
+            </div>
+
+
+            <!-- Year Switcher -->
+            <div class="year-tabs" id="eventYearTabs">
+                <!-- Populated by event-history.js -->
+            </div>
+
+
+            <!-- Populated by event-history.js -->
+            <div class="events-grid" id="eventHistoryGrid"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
          FOOTER
     ========================== -->
     <footer>
@@ -588,6 +626,11 @@
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
 
     <script src="script.js"></script>
+
+    <!-- Past execom events (from event.js); type="module" so it can import
+         event.js directly without a build step. Works over http/https only;
+         opening as a file:// URL will leave the grid empty. -->
+    <script type="module" src="event-history.js"></script>
 
 </body>
 
