@@ -2233,8 +2233,16 @@ body.is-loaded .hero-actions {
 /* Wider, more prominent form card */
 .contact-form-card {
     width: 100%;
-    max-width: 680px;
-    padding: 48px 52px;
+    max-width: 480px;
+    padding: 56px 48px 60px;
+    min-height: 560px;
+}
+/* Single-column layout inside the contact form */
+.contact-form-card .form-grid {
+    grid-template-columns: 1fr;
+}
+.contact-form-card .field.full {
+    grid-column: auto;
 }
 
 .contact-form-header {
