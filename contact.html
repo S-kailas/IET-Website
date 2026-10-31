@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <title>IET on Campus – CET | Contact</title>
+    <meta name="description" content="Get in touch with IET on Campus CET for chapter enquiries, collaborations, events and membership questions.">
 
     <!-- Google Fonts: Bricolage Grotesque + Manrope + Nunito Sans + IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,25 +22,24 @@
 
 <body>
 
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
     <header class="navbar">
         <div class="nav-inner">
 
             <a class="brand" href="index.html">
                 <div class="brand-mark">
-
                     <!-- I -->
                     <div class="col"></div>
-
                     <!-- E -->
                     <div class="rows">
                         <i></i>
                         <i></i>
                         <i></i>
                     </div>
-
                     <!-- T -->
                     <div class="brand-t"></div>
-
                 </div>
                 <div class="brand-text">
                     IET on Campus
@@ -48,124 +48,149 @@
             </a>
 
             <nav class="nav-links">
-                <a class="" href="index.html">Home</a>
-                <a class="" href="team.html">Team</a>
-                <a class="" href="events.html">Events</a>
+                <a href="index.html">Home</a>
+                <a href="team.html">Team</a>
+                <a href="events.html">Events</a>
                 <a class="active" href="contact.html">Contact Us</a>
             </nav>
 
             <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle">◐</button>
-                <button class="menu-toggle" id="menuToggle">☰</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
             </div>
 
         </div>
     </header>
 
-    <section class="page-hero">
+
+    <!-- =========================
+         CONTACT HERO
+    ========================== -->
+    <section class="page-hero contact-hero">
         <div class="container">
-
             <div class="eyebrow">Get in touch</div>
-
             <h1>Contact Us</h1>
-
             <p>
-                For chapter enquiries, collaborations, events and membership-related questions.
+                For chapter enquiries, collaborations, events<br>
+                and membership-related questions.
             </p>
-
         </div>
     </section>
 
-    <section>
-        <div class="container contact-grid">
 
-            <div class="contact-items">
+    <!-- =========================
+         FORM — MAIN CHARACTER
+    ========================== -->
+    <section class="contact-section">
+        <div class="container contact-center">
 
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p>Replace with official chapter email</p>
+            <!-- Form card -->
+            <div class="form-wrap contact-form-card">
+
+                <div class="contact-form-header">
+                    <h2>Send us a message</h2>
+                    <p>We'll get back to you as soon as possible.</p>
                 </div>
 
-                <div class="contact-item">
-                    <h3>Location</h3>
-                    <p>College of Engineering Trivandrum, Kerala</p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>Socials</h3>
-                    <p>Replace with official Instagram / LinkedIn links</p>
-                </div>
-
-            </div>
-
-            <div class="form-wrap">
-
-                <form onsubmit="return false">
-
+                <form onsubmit="return false" id="contactForm">
                     <div class="form-grid">
 
                         <div class="field">
-                            <label>Name</label>
-                            <input type="text" placeholder="Your name">
+                            <label for="contactName">Name</label>
+                            <input id="contactName" type="text" placeholder="Your name">
                         </div>
 
                         <div class="field">
-                            <label>Email</label>
-                            <input type="email" placeholder="you@example.com">
+                            <label for="contactEmail">Email</label>
+                            <input id="contactEmail" type="email" placeholder="you@example.com">
                         </div>
 
                         <div class="field full">
-                            <label>Message</label>
-                            <textarea placeholder="How can we help?"></textarea>
+                            <label for="contactSubject">Subject</label>
+                            <input id="contactSubject" type="text" placeholder="What's this about?">
                         </div>
 
                         <div class="field full">
-                            <button class="btn btn-primary" type="submit">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" placeholder="How can we help?"></textarea>
+                        </div>
+
+                        <div class="field full">
+                            <button class="btn btn-primary contact-submit" type="submit" id="contactSubmit">
                                 Send message
                             </button>
                         </div>
 
                     </div>
-
                 </form>
+
+            </div>
+
+
+            <!-- Social / quick-contact strip -->
+            <div class="contact-socials">
+
+                <span class="contact-socials-label">Find us on</span>
+
+                <!-- Instagram -->
+                <a
+                    class="contact-social-btn"
+                    href="#"
+                    id="contactInstagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="IET on Campus CET on Instagram"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a
+                    class="contact-social-btn"
+                    href="#"
+                    id="contactLinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="IET on Campus CET on LinkedIn"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
 
             </div>
 
         </div>
     </section>
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
     <footer>
 
         <div class="container">
 
-            <div class="footer-grid">
+            <div class="footer-grid footer-grid-contact">
 
+                <!-- Footer Brand -->
                 <div class="footer-brand">
 
                     <div class="brand">
-<div class="brand-mark">
+                        <div class="brand-mark">
 
                             <!-- I -->
-                            <div
-                                class="col"
-                                style="background: #fff;"
-                            ></div>
+                            <div class="col" style="background: #fff;"></div>
 
                             <!-- E -->
                             <div class="rows">
-
-                                <i
-                                    style="background: #fff;"
-                                ></i>
-
-                                <i
-                                    style="background: var(--accent);"
-                                ></i>
-
-                                <i
-                                    style="background: var(--accent);"
-                                ></i>
-
+                                <i style="background: #fff;"></i>
+                                <i style="background: var(--accent);"></i>
+                                <i style="background: var(--accent);"></i>
                             </div>
 
                             <!-- T -->
@@ -173,35 +198,37 @@
 
                         </div>
 
-                        <div class="brand-text" style="color:#fff">
+                        <div class="brand-text" style="color: #fff;">
                             IET on Campus
-                            <small style="color:#B6A9B9">CET Chapter</small>
+                            <small style="color: #B6A9B9;">CET Chapter</small>
                         </div>
 
                     </div>
 
                     <p>
-                        A student chapter of the Institution of Engineering and Technology at the College of Engineering Trivandrum.
+                        A student chapter of the Institution of Engineering
+                        and Technology at the College of Engineering Trivandrum.
                     </p>
 
                 </div>
 
+
+                <!-- Explore -->
                 <div class="footer-col">
+
                     <h5>Explore</h5>
+
                     <a href="index.html">Home</a>
                     <a href="team.html">Team</a>
                     <a href="events.html">Events</a>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Connect</h5>
                     <a href="contact.html">Contact Us</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">LinkedIn</a>
+
                 </div>
 
             </div>
 
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <span>© 2026 IET on Campus – CET</span>
                 <span>Built by the chapter web team</span>
@@ -211,6 +238,7 @@
 
     </footer>
 
+
     <!-- Smooth scroll -->
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
 
@@ -219,4 +247,3 @@
 </body>
 
 </html>
-```
