@@ -1762,6 +1762,11 @@ body.is-loaded .hero-actions {
     color: var(--text-secondary);
 }
 
+/* Centre the contact-page copy vertically against the form card. */
+.contact-hero .container {
+    transform: translateY(250px);
+}
+
 
 /* =========================================================
    TEAM
@@ -2236,6 +2241,7 @@ body.is-loaded .hero-actions {
 
 /* Wider, more prominent form card */
 .contact-form-card {
+    margin: 0 250px 0 auto;
     width: 100%;
     max-width: 480px;
     padding: 56px 48px 60px;
@@ -2532,6 +2538,10 @@ html.js-reveal .form-wrap.in-view {
    ========================================================= */
 
 @media (max-width: 900px) {
+
+    .contact-hero .container {
+        transform: none;
+    }
 
     /* Keep the compact, stacked contact layout clear of the hero copy. */
     .contact-section {
