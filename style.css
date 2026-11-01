@@ -399,7 +399,7 @@ section {
    ========================================================= */
 
 .eyebrow {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 10px;
 
@@ -411,6 +411,18 @@ section {
     text-transform: uppercase;
 
     color: var(--accent);
+}
+
+/* Keep section labels on Home and Contact, without the decorative lead-in. */
+.home-page .eyebrow,
+.contact-page .eyebrow {
+    display: flex;
+    gap: 0;
+}
+
+.home-page .eyebrow::before,
+.contact-page .eyebrow::before {
+    display: none;
 }
 
 .eyebrow::before {
@@ -1749,7 +1761,7 @@ body.is-loaded .hero-actions {
 }
 
 .page-hero h1 {
-    margin-top: 14px;
+    margin-top: 0;
 
     font-size: 48px;
 }
