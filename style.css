@@ -493,7 +493,7 @@ body.is-loaded .navbar {
    visible. Painting it once here, instead of once in .hero and again
    in a separate "gap filler" layer, avoids any seam between two
    independently-rasterized copies of the same gradient. */
-body:has(.hero)::before {
+body::before {
     content: "";
 
     position: fixed;
@@ -1750,14 +1750,6 @@ body.is-loaded .hero-actions {
 
 .page-hero {
     padding: 90px 0 70px;
-
-    background:
-        radial-gradient(
-            600px 300px
-            at 80% 0,
-            var(--accent-tint),
-            transparent 70%
-        );
 }
 
 .page-hero h1 {
