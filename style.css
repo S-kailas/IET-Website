@@ -2245,7 +2245,7 @@ body.is-loaded .hero-actions {
 
 /* Wider, more prominent form card */
 .contact-form-card {
-    margin: 0 250px 0 auto;
+    margin: 0 100px 0 auto;
     width: 100%;
     max-width: 480px;
     padding: 56px 48px 60px;
