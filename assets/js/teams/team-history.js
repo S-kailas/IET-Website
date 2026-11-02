@@ -37,6 +37,11 @@ if (tabsEl && gridEl) {
         { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
     ));
 
+    // Member data keeps the original filename and historical folder. Resolve
+    // it from the page root so dynamically rendered cards follow the new
+    // asset layout rather than the module's own directory.
+    const teamImagePath = (path) => `assets/images/teams/history/${path}`;
+
     function renderYear(key) {
         const year = YEARS.find((y) => y.key === key);
         if (!year) return;
@@ -50,7 +55,7 @@ if (tabsEl && gridEl) {
         gridEl.innerHTML = year.members.map((m) => `
             <article class="person in-view">
                 <div class="person-photo">
-                    <img src="${escapeHtml(m.img)}" alt="${escapeHtml(m.name)}">
+                    <img src="${escapeHtml(teamImagePath(m.img))}" alt="${escapeHtml(m.name)}">
                 </div>
                 <div class="person-info">
                     <h3>${escapeHtml(m.name)}</h3>
