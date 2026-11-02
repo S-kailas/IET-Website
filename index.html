@@ -683,6 +683,88 @@
 
     <script src="script.js"></script>
 
+    <!--
+        Warm the browser cache for the first content images on the Events and
+        Team pages without competing with this page's initial render.
+    -->
+    <script>
+        (function () {
+            // These are the first images shown in events.html and team.html.
+            // Keep this list intentionally small so navigation stays quick
+            // without downloading every image from either page.
+            var priorityImages = [
+                'event-image/tesla-proj.png',
+                'event-image/unwire-tesla-1.png',
+                'event-image/drishiti-for-jnr.png',
+                'images/dr_sreeja(staff advisor).jpeg',
+                'images/Adithyan B Chairperson.jpg',
+                'images/Nandanlal- Vice Chairperson .jpg'
+            ];
+
+            function absoluteUrl(url) {
+                return new URL(url, document.baseURI).href;
+            }
+
+            function preloadPriorityImages() {
+                var loadedUrls = new Set();
+                var preloadedImages = [];
+                var images = document.images;
+
+                // Do not request an image the homepage has already requested.
+                for (var i = 0; i < images.length; i += 1) {
+                    if (images[i].currentSrc || images[i].src) {
+                        loadedUrls.add(images[i].currentSrc || images[i].src);
+                    }
+                }
+
+                var urlsToPreload = priorityImages
+                    .map(absoluteUrl)
+                    .filter(function (url, index, urls) {
+                        return !loadedUrls.has(url) && urls.indexOf(url) === index;
+                    });
+
+                function releasePreloadedImage() {
+                    var imageIndex = preloadedImages.indexOf(this);
+                    if (imageIndex !== -1) preloadedImages.splice(imageIndex, 1);
+                    this.onload = null;
+                    this.onerror = null;
+                }
+
+                function preloadNext(deadline) {
+                    if (!urlsToPreload.length) return;
+
+                    // A single request per idle period keeps interaction and
+                    // lazy-loaded homepage images ahead of this background work.
+                    if (deadline.didTimeout || deadline.timeRemaining() > 0) {
+                        var image = new Image();
+                        preloadedImages.push(image);
+                        image.onload = releasePreloadedImage;
+                        image.onerror = releasePreloadedImage;
+                        image.src = urlsToPreload.shift();
+                    }
+
+                    if (urlsToPreload.length) scheduleIdleWork(preloadNext);
+                }
+
+                function scheduleIdleWork(callback) {
+                    if ('requestIdleCallback' in window) {
+                        window.requestIdleCallback(callback, { timeout: 2000 });
+                    } else {
+                        window.setTimeout(function () {
+                            callback({ didTimeout: true, timeRemaining: function () { return 0; } });
+                        }, 1500);
+                    }
+                }
+
+                scheduleIdleWork(preloadNext);
+            }
+
+            // Wait until the homepage and its existing scripts/assets have
+            // completed loading before beginning background preloading.
+            window.addEventListener('load', preloadPriorityImages, { once: true });
+        })();
+    </script>
+
 </body>
 
 </html>
