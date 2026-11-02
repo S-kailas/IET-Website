@@ -2345,7 +2345,7 @@ body.is-loaded .hero-actions {
 /* ── Contact-page footer (2 columns only) ── */
 
 .footer-grid-contact {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
 }
 
 
@@ -2365,11 +2365,11 @@ footer {
     display: grid;
 
     grid-template-columns:
-        1.5fr 1fr 1fr;
+        minmax(0, 1fr) minmax(320px, 430px);
 
-    gap: 45px;
+    gap: 80px;
 
-    padding-bottom: 40px;
+    padding-bottom: 48px;
 
     border-bottom:
         1px solid
@@ -2377,13 +2377,109 @@ footer {
 }
 
 .footer-brand p {
-    max-width: 330px;
+    max-width: 640px;
 
     margin-top: 14px;
 
     color: #B6A9B9;
 
     font-size: 13.5px;
+}
+
+/* Legacy link columns are intentionally removed from the footer layout. */
+.footer-col {
+    display: none;
+}
+
+.footer-contact h2 {
+    margin-bottom: 24px;
+
+    color: #fff;
+
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.footer-contact {
+    width: 100%;
+    max-width: 430px;
+    justify-self: end;
+    transform: translateX(260px);
+}
+
+.footer-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+
+    margin-bottom: 16px;
+
+    color: #B6A9B9;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+.footer-contact-row a {
+    color: #B6A9B9;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 400;
+}
+
+.footer-contact-row svg {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    fill: currentColor;
+}
+
+.footer-contact-row[href] {
+    color: #B6A9B9;
+}
+
+.footer-phone > div {
+    display: grid;
+    gap: 4px;
+}
+
+.footer-phone a {
+    padding-left: 14px;
+
+    color: #B6A9B9;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.footer-socials a {
+    display: grid;
+    width: 25px;
+    height: 25px;
+    place-items: center;
+
+    border: 0;
+
+    color: #B6A9B9;
+
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.footer-socials svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
 }
 
 .footer-col h5 {
@@ -2422,6 +2518,10 @@ footer {
     color: #8E7F91;
 
     font-size: 12.5px;
+}
+
+.footer-bottom span:not(:first-child) {
+    display: none;
 }
 
 
@@ -2542,6 +2642,10 @@ html.js-reveal .form-wrap.in-view {
    ========================================================= */
 
 @media (max-width: 900px) {
+
+    .footer-contact {
+        transform: none;
+    }
 
     .contact-hero .container {
         transform: none;
