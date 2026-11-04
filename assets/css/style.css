@@ -2245,7 +2245,7 @@ body.is-loaded .hero-actions {
 
 /* Wider, more prominent form card */
 .contact-form-card {
-    margin: 0 100px 0 auto;
+    margin: 0 10px 0 auto;
     width: 100%;
     max-width: 480px;
     padding: 56px 48px 60px;
@@ -2640,6 +2640,26 @@ html.js-reveal .form-wrap.in-view {
 /* =========================================================
    TABLET
    ========================================================= */
+
+/*
+   Keep the desktop composition while there is room for both areas. Before
+   the copy and right-aligned form can meet, return the copy to its natural
+   top-left position and place the form below it.
+*/
+@media (max-width: 1200px) {
+
+    .contact-hero .container {
+        transform: none;
+    }
+
+    .contact-section {
+        margin-top: 0;
+    }
+
+    .contact-form-card {
+        margin-right: auto;
+    }
+}
 
 @media (max-width: 900px) {
 
