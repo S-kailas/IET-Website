@@ -1,4 +1,4 @@
-## Asset Credits
+# Asset Credits
 
 This file documents third-party assets used on the IET on Campus CET website.
 
@@ -6,12 +6,13 @@ This file documents third-party assets used on the IET on Campus CET website.
 - IET Logo – Property of the Institution of Engineering and Technology (IET).
 
 ### Event Photographs
-| File | Source | 
-|---|---|---|
-| [tesla-robot.jpg](assets/images/events/proj-tesla-1.png) | Joel Joseph | 
-| [pcb-workshop.jpg](assets/images/events/pcb-design-2.jpeg) | Drishti committee | 
-| [pcb-workshop(1).jpg](assets/images/events/pcb-designing-5.JPG) | Drishti committee |
-| [pcb-workshop(2).jpg](assets/images/events/pcbdesigning-4.JPG) | Drishti committee |
+
+| File | Source |
+|---|---|
+| [proj-tesla-1.png](assets/images/events/proj-tesla-1.png) | Joel Joseph |
+| [pcb-design-2.jpeg](assets/images/events/pcb-design-2.jpeg) | Drishti Committee |
+| [pcb-designing-5.JPG](assets/images/events/pcb-designing-5.JPG) | Drishti Committee |
+| [pcbdesigning-4.JPG](assets/images/events/pcbdesigning-4.JPG) | Drishti Committee |
 
 ### Fonts
 - [Manrope](https://fonts.google.com/specimen/Manrope) – Google Fonts
